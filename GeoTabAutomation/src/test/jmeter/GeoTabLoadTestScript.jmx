@@ -1,0 +1,1466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Environment" elementType="Argument">
+            <stringProp name="Argument.name">Environment</stringProp>
+            <stringProp name="Argument.value">${__P(Environment,geotab-intake-test)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TestData" elementType="Argument">
+            <stringProp name="Argument.name">TestData</stringProp>
+            <stringProp name="Argument.value">${__P(TestDataFile,D:\Users\I25176\eclipse-workspace\GeoTabAutomation\src\test\resources\TestData\TestData.txt)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="subscriber_contact_email" elementType="Argument">
+            <stringProp name="Argument.name">subscriber_contact_email</stringProp>
+            <stringProp name="Argument.value">sdahal@verisk.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="waitTime" elementType="Argument">
+            <stringProp name="Argument.name">waitTime</stringProp>
+            <stringProp name="Argument.value">${__P(WaitTime,20000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ConfigTestElement guiclass="SimpleConfigGui" testclass="ConfigTestElement" testname="Config Elements" enabled="true">
+        <stringProp name="Created By">Shankar</stringProp>
+        <stringProp name="Date">07/23/2019</stringProp>
+        <stringProp name="Script Name">GeoTabAutomationScript</stringProp>
+        <stringProp name="ExpDesc"></stringProp>
+        <stringProp name="ExpDescSuccess"></stringProp>
+        <stringProp name=""></stringProp>
+        <stringProp name="G"></stringProp>
+        <stringProp name="E"></stringProp>
+        <stringProp name="O"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="DB Tables Names" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="AccountDetailsTable" elementType="Argument">
+            <stringProp name="Argument.name">AccountDetailsTable</stringProp>
+            <stringProp name="Argument.value">telematics_geotab_pii.geotab_account_details</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Expected Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="ExpDescSuccess" elementType="Argument">
+            <stringProp name="Argument.name">ExpDescSuccess</stringProp>
+            <stringProp name="Argument.value">Account creation successful</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ExpDescFail" elementType="Argument">
+            <stringProp name="Argument.name">ExpDescFail</stringProp>
+            <stringProp name="Argument.value">Invalid request body</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UpdateDescSuccess" elementType="Argument">
+            <stringProp name="Argument.name">UpdateDescSuccess</stringProp>
+            <stringProp name="Argument.value">Account updation successful</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="User Define Variables" enabled="true"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Remove Variable Share" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import org.apache.jmeter.util.JMeterUtils;
+import org.apache.jmeter.threads.JMeterVariables; 
+
+
+vars.remove(&quot;firstname&quot;);
+vars.remove(&quot;lastname&quot;);
+vars.remove(&quot;address&quot;);
+vars.remove(&quot;city&quot;);
+vars.remove(&quot;state&quot;);
+vars.remove(&quot;zipcode&quot;);
+vars.remove(&quot;country&quot;);
+vars.remove(&quot;contribid&quot;);
+vars.remove(&quot;desc&quot;);
+
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="GeoTab Threads Define" enabled="true">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="-2092517864">
+            <stringProp name="53">5</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="53">5</stringProp>
+            <stringProp name="1598">20</stringProp>
+            <stringProp name="53">5</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set Environment Details" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String Env=vars.get(&quot;Environment&quot;);
+
+switch(Env){
+	case &quot;geotab-intake-test&quot;:
+	vars.put(&quot;Host&quot;,&quot;geotab-cluster-test.cluster-cq2sspyzspcm.us-east-1.rds.amazonaws.com&quot;);
+	vars.put(&quot;DatabaseName&quot;,&quot;geotabdb&quot;);
+	vars.put(&quot;UserName&quot;,&quot;i25176&quot;);	
+	vars.put(&quot;UserPassword&quot;,&quot;Dahl8BS3js&quot;);
+	vars.put(&quot;EnrollmentAPI&quot;,&quot;https://ylxigo7bf6.execute-api.us-east-1.amazonaws.com/Prod/&quot;);
+	vars.put(&quot;GetUserAPI&quot;,&quot;https://ylxigo7bf6.execute-api.us-east-1.amazonaws.com/Prod/&quot;);
+	vars.put(&quot;EnrollmentUpdateAPI&quot;,&quot;https://ylxigo7bf6.execute-api.us-east-1.amazonaws.com/Prod/&quot;);
+	
+	break;
+
+	case &quot;geotab-intake-dev&quot;:
+
+	break;
+
+	default:
+	System.out.println(&quot;No Environment Define&quot;);
+	break;	
+	
+}
+
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Database Connection" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.sql.*;
+import org.apache.jmeter.util.JMeterUtils;
+
+Connection connection=null;
+
+try {
+
+	connection = DriverManager.getConnection(&quot;jdbc:postgresql://&quot;+vars.get(&quot;Host&quot;)+&quot;:5432/&quot;+vars.get(&quot;DatabaseName&quot;)+&quot;?tcpKeepAlive=true&quot;, vars.get(&quot;UserName&quot;),vars.get(&quot;UserPassword&quot;));
+
+} catch (SQLException e) {
+
+	System.out.println(&quot;Connection Failed! Check output console&quot;);
+	e.printStackTrace();
+}
+
+Properties properties=JMeterUtils.getJMeterProperties();
+properties.put(&quot;connection&quot;,connection);</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Enrollment Test Scenarios" enabled="true"/>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Valid GeoTabEnrollment_TEST_ENV" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="Random Data Set " enabled="true">
+              <stringProp name="filename">${TestData}</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="delimiter">,</stringProp>
+              <stringProp name="variableNames">firstname,lastname,address,city,state,zipcode,country</stringProp>
+              <boolProp name="randomOrder">true</boolProp>
+              <boolProp name="ignoreFirstLine">true</boolProp>
+              <boolProp name="rewindOnTheEndOfList">true</boolProp>
+              <boolProp name="independentListPerThread">true</boolProp>
+            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enrollment HTTP Request" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{  &#xd;
+   &quot;contrib_id&quot;:&quot;${contribid}&quot;,&#xd;
+   &quot;account_id&quot;:&quot;${account_id}&quot;,&#xd;
+   &quot;subscriber_name&quot;:&quot;${subscriber_name}&quot;,&#xd;
+   &quot;subscriber_address&quot;:&quot;${address}&quot;,&#xd;
+   &quot;subscriber_city&quot;:&quot;${city}&quot;,&#xd;
+   &quot;subscriber_state&quot;:&quot;${state}&quot;,&#xd;
+   &quot;subscriber_zip&quot;:&quot;${zipcode}&quot;,   &#xd;
+   &quot;subscriber_contact_first_name&quot;:&quot;${firstname}&quot;,&#xd;
+   &quot;subscriber_contact_last_name&quot;:&quot;${lastname}&quot;,&#xd;
+   &quot;subscriber_contact_email&quot;:&quot;${subscriber_contact_email}&quot;,&#xd;
+   &quot;dot_number&quot;:&quot;${dot_number}&quot;,&#xd;
+   &quot;verisk_service_account_name&quot;:&quot;${verisk_service_account_name}&quot;,&#xd;
+   &quot;verisk_service_account_password&quot;:&quot;${verisk_service_account_password}&quot;,&#xd;
+   &quot;updated_by&quot;:&quot;${firstname}&quot;,&#xd;
+   &quot;historical_pull&quot;: &quot;${historical_pull}&quot;&#xd;
+}&#xd;
+</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${EnrollmentAPI}</stringProp>
+              <stringProp name="HTTPSampler.method">PUT</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BackEnd Data Generation" enabled="true">
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="script">	String contribid = &quot;GTQATEST${__RandomString(05,uvwxspdABDE1234567890)}&quot;; 
+	contribid=contribid.replace(&quot;.&quot;,&quot;&quot;);
+	log.info(&quot;contribid: &quot;+contribid);
+	vars.put(&quot;contribid&quot;,contribid); 
+	vars.put(&quot;account_id&quot;,&quot;ABCtrucking&quot;);
+	vars.put(&quot;subscriber_name&quot;,&quot;ABC trucking Ltd&quot;);
+	vars.put(&quot;dot_number&quot;,&quot;xxxxx&quot;);
+	vars.put(&quot;verisk_service_account_name&quot;,&quot;Verisk-Service@ABCtrucking&quot;);
+	vars.put(&quot;verisk_service_account_password&quot;,&quot;XXXXX&quot;);
+	vars.put(&quot;historical_pull&quot;,&quot;2019-07-24 17:10:22&quot;);
+
+</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Check For Response Assertion ?" enabled="true">
+                <stringProp name="BeanShellAssertion.query">
+if (ResponseCode.equals(&quot;200&quot;))
+{
+StringBuilder sb = new StringBuilder();
+sb.append(&quot;Transaction: &quot;);
+sb.append(SampleResult.getSampleLabel()).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Status: &quot;);
+sb.append(&quot;PASSED&quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Code: &quot;);
+sb.append(ResponseCode).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Message: &quot;);
+sb.append(ResponseMessage);
+sb.append(&quot;\n&quot;);
+log.info(sb.toString());
+}
+
+else {
+
+StringBuilder sb = new StringBuilder();
+sb.append(&quot;Transaction: &quot;);
+sb.append(SampleResult.getSampleLabel()).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Status: &quot;);
+sb.append(&quot;FAILED&quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Code: &quot;);
+sb.append(ResponseCode).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Message: &quot;);
+sb.append(ResponseMessage);
+sb.append(&quot;\n&quot;);
+log.info(sb.toString());
+}
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract Response Description" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">desc</stringProp>
+                <stringProp name="RegexExtractor.regex">{&quot;desc&quot;: &quot;(.*?)&quot;</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">desc not found</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Verify the Response Description" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">AssertValues(vars.get(&quot;ExpDescSuccess&quot;), vars.get(&quot;desc&quot;),&quot;desc : Account creation successful  is as expected&quot;,&quot;desc : Account creation successful is not as expected&quot;);
+
+
+public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot;Expected: &quot;+Expected);
+        }
+    }</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="Geo Tab Account Details" enabled="true">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Verify Geo Tab Account Details" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">import org.apache.jmeter.util.JMeterUtils;
+import java.lang.String;
+import java.text.SimpleDateFormat;
+import java.text.Format;
+import java.text.DateFormat;
+import java.util.TimeZone;
+import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.time.*;
+import java.sql.*;
+
+Properties properties = JMeterUtils.getJMeterProperties();
+Statement session = properties.get(&quot;connection&quot;).createStatement();
+ResultSet rs;
+
+Thread.sleep(Integer.parseInt(vars.get(&quot;waitTime&quot;)));
+
+log.info (&quot;select count(*) from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+rs= session.executeQuery(&quot;select count(*) from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+rs.next();
+
+int count_row = rs.getInt(&quot;count&quot;);
+log.info(&quot;Count is : &quot;+count_row);
+
+if(count_row==1){
+	rs= session.executeQuery(&quot;select * from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+	
+while(rs.next()){
+	AssertValues(vars.get(&quot;account_id&quot;),rs.getString(&quot;account_id&quot;),&quot;account_id same as expected&quot;,&quot;account_not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;verisk_service_account_name&quot;),rs.getString(&quot;verisk_service_account_name&quot;),&quot;verisk_service_account_name same as expected&quot;,&quot;verisk_service_account_name not as expected&quot;);
+	AssertValues(vars.get(&quot;dot_number&quot;),rs.getString(&quot;dot_num&quot;),&quot;dot_num same as expected&quot;,&quot;dot_num not as expected&quot;);
+	AssertValues(vars.get(&quot;contribid&quot;),rs.getString(&quot;contrib_id&quot;),&quot;contrib_id same as expected&quot;,&quot;contrib_id not as expected&quot;);
+	AssertValues(vars.get(&quot;subscriber_name&quot;),rs.getString(&quot;subscriber_name&quot;),&quot;subscriber_name same as expected&quot;,&quot;subscriber_name not as expected&quot;);
+	AssertValues(vars.get(&quot;address&quot;),rs.getString(&quot;subscriber_address&quot;),&quot;subscriber_address same as expected&quot;,&quot;subscriber_address not as expected&quot;);
+	AssertValues(vars.get(&quot;city&quot;),rs.getString(&quot;subscriber_city&quot;),&quot;subscriber_city same as expected&quot;,&quot;subscriber_city not as expected&quot;);
+	AssertValues(vars.get(&quot;state&quot;),rs.getString(&quot;subscriber_state&quot;),&quot;subscriber_state same as expected&quot;,&quot;subscriber_state not as expected&quot;);
+	AssertValues(vars.get(&quot;zipcode&quot;),rs.getString(&quot;subscriber_zip&quot;),&quot;subscriber_zip same as expected&quot;,&quot;subscriber_zip not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;firstname&quot;),rs.getString(&quot;subscriber_contact_first_name&quot;),&quot;subscriber_contact_first_name same as expected&quot;,&quot;subscriber_contact_first_name not as expected&quot;);
+	AssertValues(vars.get(&quot;lastname&quot;),rs.getString(&quot;subscriber_contact_last_name&quot;),&quot;subscriber_contact_last_name same as expected&quot;,&quot;subscriber_contact_last_name not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;subscriber_contact_email&quot;),rs.getString(&quot;subscriber_contact_email&quot;),&quot;subscriber_contact_email same as expected&quot;,&quot;subscriber_contact_email not as expected&quot;);
+	AssertValues(vars.get(&quot;historical_pull&quot;),rs.getString(&quot;historical_pull&quot;),&quot;historical_pull same as expected&quot;,&quot;historical_pull is not as expected&quot;);
+	AssertValues(vars.get(&quot;firstname&quot;),rs.getString(&quot;last_updated_by&quot;),&quot;last_updated_by same as expected&quot;,&quot;last_updated_by is not as expected&quot;);
+	AssertValues(&quot;Success&quot;,rs.getString(&quot;status&quot;),&quot;status same as expected&quot;,&quot;status not as expected&quot;);	
+}
+
+	
+}else{
+	AssertValues(&quot;1&quot;,String.valueOf(count_row),&quot;Only one data should be populate&quot;,&quot;No Data is populate&quot;);
+}
+
+
+public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected);
+        }
+    }
+
+
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET Request " enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${GetUserAPI}${contribid}/${account_id}</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="script">vars.put(&quot;JSONResponse&quot;, prev.getResponseDataAsString());
+</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+            </hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Validate Register User" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+String response_data = vars.get(&quot;JSONResponse&quot;);
+
+
+		JSONParser json_parser = new JSONParser();
+		JSONObject json_obj = (JSONObject) json_parser.parse(response_data);
+		
+		JSONObject account_json_obj =  (JSONObject) json_obj.get(&quot;account&quot;);
+		String actual_accountid = account_json_obj.get(&quot;account_id&quot;).toString();
+		String actual_contribid = account_json_obj.get(&quot;contrib_id&quot;).toString();
+		String actual_subscribername = account_json_obj.get(&quot;subscriber_name&quot;).toString();
+		String actual_subscriberAddress = account_json_obj.get(&quot;subscriber_address&quot;).toString();
+		String actual_subscriberCity = account_json_obj.get(&quot;subscriber_city&quot;).toString();
+		String actual_subscriberState = account_json_obj.get(&quot;subscriber_state&quot;).toString();
+		String actual_subscriberZip = account_json_obj.get(&quot;subscriber_zip&quot;).toString();
+		String actual_subscriberFirstName = account_json_obj.get(&quot;subscriber_contact_first_name&quot;).toString();
+		String actual_subscriberLastName = account_json_obj.get(&quot;subscriber_contact_last_name&quot;).toString();
+		String actual_subscriberEmail  = account_json_obj.get(&quot;subscriber_contact_email&quot;).toString();
+		String actual_accountName = account_json_obj.get(&quot;verisk_service_account_name&quot;).toString();
+		String actual_dotNum = account_json_obj.get(&quot;dot_num&quot;).toString();
+		String actual_status = account_json_obj.get(&quot;status&quot;).toString();
+		
+		
+		AssertValues(vars.get(&quot;account_id&quot;),actual_accountid,actual_accountid+&quot; Match &quot;, actual_accountid+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;contribid&quot;),actual_contribid,actual_contribid+&quot; Match&quot;,actual_contribid+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_name&quot;),actual_subscribername,actual_subscribername+&quot; Match&quot;,actual_subscribername+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;address&quot;),actual_subscriberAddress,actual_subscriberAddress+&quot; Match&quot;,actual_subscriberAddress+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;city&quot;),actual_subscriberCity,actual_subscriberCity+&quot; Match&quot;,actual_subscriberCity+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;state&quot;),actual_subscriberState,actual_subscriberState+&quot; Match&quot;,actual_subscriberState+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;zipcode&quot;),actual_subscriberZip,actual_subscriberZip+&quot; Match&quot;,actual_subscriberZip+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;firstname&quot;),actual_subscriberFirstName,actual_subscriberFirstName+&quot; Match&quot;,actual_subscriberFirstName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;lastname&quot;),actual_subscriberLastName,actual_subscriberLastName+&quot; Match&quot;,actual_subscriberLastName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_contact_email&quot;),actual_subscriberEmail,actual_subscriberEmail+&quot; Match&quot;,actual_subscriberEmail+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;verisk_service_account_name&quot;),actual_accountName,actual_accountName+&quot; Match&quot;,actual_accountName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;dot_number&quot;),actual_dotNum,actual_dotNum+&quot; Match&quot;,actual_dotNum+&quot; Not Match&quot;);
+		AssertValues(&quot;Success&quot;,actual_status,actual_status+&quot; Match&quot;,actual_status+&quot; Not Match&quot;);
+		
+	
+	public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected);
+        }
+    }</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Variable Scope only in one Transaction" enabled="true">
+              <collectionProp name="ModuleController.node_path">
+                <stringProp name="764597751">Test Plan</stringProp>
+                <stringProp name="764597751">Test Plan</stringProp>
+                <stringProp name="932775143">User Define Variables</stringProp>
+              </collectionProp>
+            </ModuleController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Enrollment Update Scenarios" enabled="false"/>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="+++++ Eupdate_01 : Validate the VDE Enrollment Update with valid data +++++" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="Random Data Set " enabled="true">
+              <stringProp name="filename">${TestData}</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="delimiter">,</stringProp>
+              <stringProp name="variableNames">firstname,lastname,address,city,state,zipcode,country</stringProp>
+              <boolProp name="randomOrder">true</boolProp>
+              <boolProp name="ignoreFirstLine">true</boolProp>
+              <boolProp name="rewindOnTheEndOfList">true</boolProp>
+              <boolProp name="independentListPerThread">true</boolProp>
+            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enrollment HTTP Request" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{  &#xd;
+   &quot;contrib_id&quot;:&quot;${contribid}&quot;,&#xd;
+   &quot;account_id&quot;:&quot;${account_id}&quot;,&#xd;
+   &quot;subscriber_name&quot;:&quot;${subscriber_name}&quot;,&#xd;
+   &quot;subscriber_address&quot;:&quot;${address}&quot;,&#xd;
+   &quot;subscriber_city&quot;:&quot;${city}&quot;,&#xd;
+   &quot;subscriber_state&quot;:&quot;${state}&quot;,&#xd;
+   &quot;subscriber_zip&quot;:&quot;${zipcode}&quot;,   &#xd;
+   &quot;subscriber_contact_first_name&quot;:&quot;${subscriber_contact_first_name}&quot;,&#xd;
+   &quot;subscriber_contact_last_name&quot;:&quot;${subscriber_contact_last_name}&quot;,&#xd;
+   &quot;subscriber_contact_email&quot;:&quot;${subscriber_contact_email}&quot;,&#xd;
+   &quot;dot_number&quot;:&quot;${dot_number}&quot;,&#xd;
+   &quot;verisk_service_account_name&quot;:&quot;${verisk_service_account_name}&quot;,&#xd;
+   &quot;verisk_service_account_password&quot;:&quot;${verisk_service_account_password}&quot;,&#xd;
+   &quot;updated_by&quot;:&quot;${updated_by}&quot;,&#xd;
+   &quot;historical_pull&quot;: &quot;${historical_pull}&quot;&#xd;
+}&#xd;
+</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${EnrollmentAPI}</stringProp>
+              <stringProp name="HTTPSampler.method">PUT</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BackEnd Data Generation" enabled="true">
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="script">	String contribid = &quot;GTQATEST${__RandomString(05,uvwxspdABDE1234567890)}&quot;; 
+	contribid=contribid.replace(&quot;.&quot;,&quot;&quot;);
+	log.info(&quot;contribid: &quot;+contribid);
+	vars.put(&quot;contribid&quot;,contribid); 
+	vars.put(&quot;account_id&quot;,&quot;ABCtrucking&quot;);
+	vars.put(&quot;subscriber_name&quot;,&quot;ABC trucking Ltd&quot;);
+	vars.put(&quot;subscriber_contact_first_name&quot;,&quot;John&quot;);
+	vars.put(&quot;subscriber_contact_last_name&quot;,&quot;Samuel&quot;);
+	vars.put(&quot;dot_number&quot;,&quot;xxxxx&quot;);
+	vars.put(&quot;verisk_service_account_name&quot;,&quot;Verisk-Service@ABCtrucking&quot;);
+	vars.put(&quot;verisk_service_account_password&quot;,&quot;XXXXX&quot;);
+	vars.put(&quot;updated_by&quot;,&quot;John&quot;);
+	vars.put(&quot;historical_pull&quot;,&quot;2019-07-24 17:10:22&quot;);
+
+</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Check For Response Assertion ?" enabled="true">
+                <stringProp name="BeanShellAssertion.query">
+if (ResponseCode.equals(&quot;200&quot;))
+{
+StringBuilder sb = new StringBuilder();
+sb.append(&quot;Transaction: &quot;);
+sb.append(SampleResult.getSampleLabel()).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Status: &quot;);
+sb.append(&quot;PASSED&quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Code: &quot;);
+sb.append(ResponseCode).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Message: &quot;);
+sb.append(ResponseMessage);
+sb.append(&quot;\n&quot;);
+log.info(sb.toString());
+}
+
+else {
+
+StringBuilder sb = new StringBuilder();
+sb.append(&quot;Transaction: &quot;);
+sb.append(SampleResult.getSampleLabel()).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Status: &quot;);
+sb.append(&quot;FAILED&quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Code: &quot;);
+sb.append(ResponseCode).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Message: &quot;);
+sb.append(ResponseMessage);
+sb.append(&quot;\n&quot;);
+log.info(sb.toString());
+}
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract Response Description" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">desc</stringProp>
+                <stringProp name="RegexExtractor.regex">{&quot;desc&quot;: &quot;(.*?)&quot;</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">desc not found</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Verify the Response Description" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">AssertValues(vars.get(&quot;ExpDescSuccess&quot;), vars.get(&quot;desc&quot;),&quot;desc : Account creation successful  is as expected&quot;,&quot;desc : Account creation successful is not as expected&quot;);
+
+
+public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot;Expected: &quot;+Expected);
+        }
+    }</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="Geo Tab Account Details" enabled="true">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Verify Geo Tab Account Details" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">import org.apache.jmeter.util.JMeterUtils;
+import java.lang.String;
+import java.text.SimpleDateFormat;
+import java.text.Format;
+import java.text.DateFormat;
+import java.util.TimeZone;
+import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.time.*;
+import java.sql.*;
+
+Properties properties = JMeterUtils.getJMeterProperties();
+Statement session = properties.get(&quot;connection&quot;).createStatement();
+ResultSet rs;
+
+Thread.sleep(Integer.parseInt(vars.get(&quot;waitTime&quot;)));
+
+log.info (&quot;select count(*) from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+rs= session.executeQuery(&quot;select count(*) from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+rs.next();
+
+int count_row = rs.getInt(&quot;count&quot;);
+log.info(&quot;Count is : &quot;+count_row);
+
+if(count_row==1){
+	rs= session.executeQuery(&quot;select * from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+	
+while(rs.next()){
+	AssertValues(vars.get(&quot;account_id&quot;),rs.getString(&quot;account_id&quot;),&quot;account_id same as expected&quot;,&quot;account_not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;verisk_service_account_name&quot;),rs.getString(&quot;verisk_service_account_name&quot;),&quot;verisk_service_account_name same as expected&quot;,&quot;verisk_service_account_name not as expected&quot;);
+	AssertValues(vars.get(&quot;dot_number&quot;),rs.getString(&quot;dot_num&quot;),&quot;dot_num same as expected&quot;,&quot;dot_num not as expected&quot;);
+	AssertValues(vars.get(&quot;contribid&quot;),rs.getString(&quot;contrib_id&quot;),&quot;contrib_id same as expected&quot;,&quot;contrib_id not as expected&quot;);
+	AssertValues(vars.get(&quot;subscriber_name&quot;),rs.getString(&quot;subscriber_name&quot;),&quot;subscriber_name same as expected&quot;,&quot;subscriber_name not as expected&quot;);
+	AssertValues(vars.get(&quot;address&quot;),rs.getString(&quot;subscriber_address&quot;),&quot;subscriber_address same as expected&quot;,&quot;subscriber_address not as expected&quot;);
+	AssertValues(vars.get(&quot;city&quot;),rs.getString(&quot;subscriber_city&quot;),&quot;subscriber_city same as expected&quot;,&quot;subscriber_city not as expected&quot;);
+	AssertValues(vars.get(&quot;state&quot;),rs.getString(&quot;subscriber_state&quot;),&quot;subscriber_state same as expected&quot;,&quot;subscriber_state not as expected&quot;);
+	AssertValues(vars.get(&quot;zipcode&quot;),rs.getString(&quot;subscriber_zip&quot;),&quot;subscriber_zip same as expected&quot;,&quot;subscriber_zip not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;subscriber_contact_first_name&quot;),rs.getString(&quot;subscriber_contact_first_name&quot;),&quot;subscriber_contact_first_name same as expected&quot;,&quot;subscriber_contact_first_name not as expected&quot;);
+	AssertValues(vars.get(&quot;subscriber_contact_last_name&quot;),rs.getString(&quot;subscriber_contact_last_name&quot;),&quot;subscriber_contact_last_name same as expected&quot;,&quot;subscriber_contact_last_name not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;subscriber_contact_email&quot;),rs.getString(&quot;subscriber_contact_email&quot;),&quot;subscriber_contact_email same as expected&quot;,&quot;subscriber_contact_email not as expected&quot;);
+	AssertValues(vars.get(&quot;historical_pull&quot;),rs.getString(&quot;historical_pull&quot;),&quot;historical_pull same as expected&quot;,&quot;historical_pull is not as expected&quot;);
+	AssertValues(vars.get(&quot;updated_by&quot;),rs.getString(&quot;last_updated_by&quot;),&quot;last_updated_by same as expected&quot;,&quot;last_updated_by is not as expected&quot;);
+	AssertValues(&quot;Success&quot;,rs.getString(&quot;status&quot;),&quot;status same as expected&quot;,&quot;status not as expected&quot;);	
+}
+
+	
+}else{
+	AssertValues(&quot;1&quot;,String.valueOf(count_row),&quot;Only one data should be populate&quot;,&quot;No Data is populate&quot;);
+}
+
+
+public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected);
+        }
+    }
+
+
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET Request " enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${GetUserAPI}${contribid}/${account_id}</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="script">vars.put(&quot;JSONResponse&quot;, prev.getResponseDataAsString());
+</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+            </hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Validate Register User" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+String response_data = vars.get(&quot;JSONResponse&quot;);
+
+
+		JSONParser json_parser = new JSONParser();
+		JSONObject json_obj = (JSONObject) json_parser.parse(response_data);
+		
+		JSONObject account_json_obj =  (JSONObject) json_obj.get(&quot;account&quot;);
+		String actual_accountid = account_json_obj.get(&quot;account_id&quot;).toString();
+		String actual_contribid = account_json_obj.get(&quot;contrib_id&quot;).toString();
+		String actual_subscribername = account_json_obj.get(&quot;subscriber_name&quot;).toString();
+		String actual_subscriberAddress = account_json_obj.get(&quot;subscriber_address&quot;).toString();
+		String actual_subscriberCity = account_json_obj.get(&quot;subscriber_city&quot;).toString();
+		String actual_subscriberState = account_json_obj.get(&quot;subscriber_state&quot;).toString();
+		String actual_subscriberZip = account_json_obj.get(&quot;subscriber_zip&quot;).toString();
+		String actual_subscriberFirstName = account_json_obj.get(&quot;subscriber_contact_first_name&quot;).toString();
+		String actual_subscriberLastName = account_json_obj.get(&quot;subscriber_contact_last_name&quot;).toString();
+		String actual_subscriberEmail  = account_json_obj.get(&quot;subscriber_contact_email&quot;).toString();
+		String actual_accountName = account_json_obj.get(&quot;verisk_service_account_name&quot;).toString();
+		String actual_dotNum = account_json_obj.get(&quot;dot_num&quot;).toString();
+		String actual_status = account_json_obj.get(&quot;status&quot;).toString();
+		
+		
+		AssertValues(vars.get(&quot;account_id&quot;),actual_accountid,actual_accountid+&quot; Match &quot;, actual_accountid+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;contribid&quot;),actual_contribid,actual_contribid+&quot; Match&quot;,actual_contribid+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_name&quot;),actual_subscribername,actual_subscribername+&quot; Match&quot;,actual_subscribername+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;address&quot;),actual_subscriberAddress,actual_subscriberAddress+&quot; Match&quot;,actual_subscriberAddress+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;city&quot;),actual_subscriberCity,actual_subscriberCity+&quot; Match&quot;,actual_subscriberCity+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;state&quot;),actual_subscriberState,actual_subscriberState+&quot; Match&quot;,actual_subscriberState+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;zipcode&quot;),actual_subscriberZip,actual_subscriberZip+&quot; Match&quot;,actual_subscriberZip+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_contact_first_name&quot;),actual_subscriberFirstName,actual_subscriberFirstName+&quot; Match&quot;,actual_subscriberFirstName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_contact_last_name&quot;),actual_subscriberLastName,actual_subscriberLastName+&quot; Match&quot;,actual_subscriberLastName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_contact_email&quot;),actual_subscriberEmail,actual_subscriberEmail+&quot; Match&quot;,actual_subscriberEmail+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;verisk_service_account_name&quot;),actual_accountName,actual_accountName+&quot; Match&quot;,actual_accountName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;dot_number&quot;),actual_dotNum,actual_dotNum+&quot; Match&quot;,actual_dotNum+&quot; Not Match&quot;);
+		AssertValues(&quot;Success&quot;,actual_status,actual_status+&quot; Match&quot;,actual_status+&quot; Not Match&quot;);
+		
+	
+	public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected);
+        }
+    }</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="Update Data Set " enabled="true">
+              <stringProp name="filename">${TestData}</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="delimiter">,</stringProp>
+              <stringProp name="variableNames">firstname,lastname,address1,city1,state1,zipcode1,country</stringProp>
+              <boolProp name="randomOrder">true</boolProp>
+              <boolProp name="ignoreFirstLine">true</boolProp>
+              <boolProp name="rewindOnTheEndOfList">true</boolProp>
+              <boolProp name="independentListPerThread">true</boolProp>
+            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Enrollment HTTP Request" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{  &#xd;
+   &quot;contrib_id&quot;:&quot;${contribid}&quot;,&#xd;
+   &quot;account_id&quot;:&quot;${account_id}&quot;,&#xd;
+   &quot;subscriber_name&quot;:&quot;${subscriber_name}&quot;,&#xd;
+   &quot;subscriber_address&quot;:&quot;${address1}&quot;,&#xd;
+   &quot;subscriber_city&quot;:&quot;${city1}&quot;,&#xd;
+   &quot;subscriber_state&quot;:&quot;${state1}&quot;,&#xd;
+   &quot;subscriber_zip&quot;:&quot;${zipcode1}&quot;,   &#xd;
+   &quot;subscriber_contact_first_name&quot;:&quot;${subscriber_contact_first_name}&quot;,&#xd;
+   &quot;subscriber_contact_last_name&quot;:&quot;${subscriber_contact_last_name}&quot;,&#xd;
+   &quot;subscriber_contact_email&quot;:&quot;${subscriber_contact_email}&quot;,&#xd;
+   &quot;updated_by&quot;:&quot;${updated_by}&quot;&#xd;
+}&#xd;
+</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${EnrollmentUpdateAPI}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BackEnd Data Generation" enabled="true">
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="script">	String contribid = vars.get(&quot;contribid&quot;);
+	log.info(&quot;contribid: &quot;+contribid);
+	vars.put(&quot;contribid&quot;,contribid); 
+	vars.put(&quot;account_id&quot;,&quot;ABCtrucking&quot;);
+	vars.put(&quot;subscriber_name&quot;,&quot;ABC trucking Ltd&quot;);
+	vars.put(&quot;subscriber_contact_first_name&quot;,&quot;Shankar&quot;);
+	vars.put(&quot;subscriber_contact_last_name&quot;,&quot;Dahal&quot;);
+	vars.put(&quot;updated_by&quot;,&quot;Shankar&quot;);
+	
+</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Check For Response Assertion ?" enabled="true">
+                <stringProp name="BeanShellAssertion.query">
+if (ResponseCode.equals(&quot;200&quot;))
+{
+StringBuilder sb = new StringBuilder();
+sb.append(&quot;Transaction: &quot;);
+sb.append(SampleResult.getSampleLabel()).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Status: &quot;);
+sb.append(&quot;PASSED&quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Code: &quot;);
+sb.append(ResponseCode).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Message: &quot;);
+sb.append(ResponseMessage);
+sb.append(&quot;\n&quot;);
+log.info(sb.toString());
+}
+
+else {
+
+StringBuilder sb = new StringBuilder();
+sb.append(&quot;Transaction: &quot;);
+sb.append(SampleResult.getSampleLabel()).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Status: &quot;);
+sb.append(&quot;FAILED&quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Code: &quot;);
+sb.append(ResponseCode).append(&quot; &quot;);
+sb.append(&quot;\n&quot;);
+sb.append(&quot;Message: &quot;);
+sb.append(ResponseMessage);
+sb.append(&quot;\n&quot;);
+log.info(sb.toString());
+}
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract Response Description" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">desc</stringProp>
+                <stringProp name="RegexExtractor.regex">{&quot;desc&quot;: &quot;(.*?)&quot;</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">desc not found</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Verify the Response Description" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">AssertValues(vars.get(&quot;UpdateDescSuccess&quot;), vars.get(&quot;desc&quot;),&quot;desc : Account Updation successful  is as expected&quot;,&quot;desc : Account Updatiom successful is not as expected&quot;);
+
+
+public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot;Expected: &quot;+Expected);
+        }
+    }</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="Geo Tab Account Details" enabled="true">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Verify Geo Tab Update Account Details" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">import org.apache.jmeter.util.JMeterUtils;
+import java.lang.String;
+import java.text.SimpleDateFormat;
+import java.text.Format;
+import java.text.DateFormat;
+import java.util.TimeZone;
+import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.time.*;
+import java.sql.*;
+
+Properties properties = JMeterUtils.getJMeterProperties();
+Statement session = properties.get(&quot;connection&quot;).createStatement();
+ResultSet rs;
+
+Thread.sleep(Integer.parseInt(vars.get(&quot;waitTime&quot;)));
+
+log.info (&quot;select count(*) from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+rs= session.executeQuery(&quot;select count(*) from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+rs.next();
+
+int count_row = rs.getInt(&quot;count&quot;);
+log.info(&quot;Count is : &quot;+count_row);
+
+if(count_row==1){
+	rs= session.executeQuery(&quot;select * from &quot;+vars.get(&quot;AccountDetailsTable&quot;)+&quot; where contrib_id=&apos;&quot;+ vars.get(&quot;contribid&quot;) +&quot;&apos; ;&quot;);
+	
+while(rs.next()){
+	AssertValues(vars.get(&quot;account_id&quot;),rs.getString(&quot;account_id&quot;),&quot;account_id same as expected&quot;,&quot;account_not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;verisk_service_account_name&quot;),rs.getString(&quot;verisk_service_account_name&quot;),&quot;verisk_service_account_name same as expected&quot;,&quot;verisk_service_account_name not as expected&quot;);
+	AssertValues(vars.get(&quot;dot_number&quot;),rs.getString(&quot;dot_num&quot;),&quot;dot_num same as expected&quot;,&quot;dot_num not as expected&quot;);
+	AssertValues(vars.get(&quot;contribid&quot;),rs.getString(&quot;contrib_id&quot;),&quot;contrib_id same as expected&quot;,&quot;contrib_id not as expected&quot;);
+	AssertValues(vars.get(&quot;subscriber_name&quot;),rs.getString(&quot;subscriber_name&quot;),&quot;subscriber_name same as expected&quot;,&quot;subscriber_name not as expected&quot;);
+	AssertValues(vars.get(&quot;address1&quot;),rs.getString(&quot;subscriber_address&quot;),&quot;subscriber_address same as expected&quot;,&quot;subscriber_address not as expected&quot;);
+	AssertValues(vars.get(&quot;city1&quot;),rs.getString(&quot;subscriber_city&quot;),&quot;subscriber_city same as expected&quot;,&quot;subscriber_city not as expected&quot;);
+	AssertValues(vars.get(&quot;state1&quot;),rs.getString(&quot;subscriber_state&quot;),&quot;subscriber_state same as expected&quot;,&quot;subscriber_state not as expected&quot;);
+	AssertValues(vars.get(&quot;zipcode1&quot;),rs.getString(&quot;subscriber_zip&quot;),&quot;subscriber_zip same as expected&quot;,&quot;subscriber_zip not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;subscriber_contact_first_name&quot;),rs.getString(&quot;subscriber_contact_first_name&quot;),&quot;subscriber_contact_first_name same as expected&quot;,&quot;subscriber_contact_first_name not as expected&quot;);
+	AssertValues(vars.get(&quot;subscriber_contact_last_name&quot;),rs.getString(&quot;subscriber_contact_last_name&quot;),&quot;subscriber_contact_last_name same as expected&quot;,&quot;subscriber_contact_last_name not as expected&quot;);
+	
+	AssertValues(vars.get(&quot;subscriber_contact_email&quot;),rs.getString(&quot;subscriber_contact_email&quot;),&quot;subscriber_contact_email same as expected&quot;,&quot;subscriber_contact_email not as expected&quot;);
+	AssertValues(vars.get(&quot;historical_pull&quot;),rs.getString(&quot;historical_pull&quot;),&quot;historical_pull same as expected&quot;,&quot;historical_pull is not as expected&quot;);
+	AssertValues(vars.get(&quot;updated_by&quot;),rs.getString(&quot;last_updated_by&quot;),&quot;last_updated_by same as expected&quot;,&quot;last_updated_by is not as expected&quot;);
+	AssertValues(&quot;Success&quot;,rs.getString(&quot;status&quot;),&quot;status same as expected&quot;,&quot;status not as expected&quot;);	
+}
+
+	
+}else{
+	AssertValues(&quot;1&quot;,String.valueOf(count_row),&quot;Only one data should be populate&quot;,&quot;No Data is populate&quot;);
+}
+
+
+public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected);
+        }
+    }
+
+
+</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET Request After Update" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${GetUserAPI}${contribid}/${account_id}</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="script">vars.put(&quot;JSONResponseData&quot;, prev.getResponseDataAsString());
+</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+            </hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Validate Register User After Update" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+String response_data = vars.get(&quot;JSONResponseData&quot;);
+
+
+		JSONParser json_parser = new JSONParser();
+		JSONObject json_obj = (JSONObject) json_parser.parse(response_data);
+		
+		JSONObject account_json_obj =  (JSONObject) json_obj.get(&quot;account&quot;);
+		String actual_accountid = account_json_obj.get(&quot;account_id&quot;).toString();
+		String actual_contribid = account_json_obj.get(&quot;contrib_id&quot;).toString();
+		String actual_subscribername = account_json_obj.get(&quot;subscriber_name&quot;).toString();
+		String actual_subscriberAddress = account_json_obj.get(&quot;subscriber_address&quot;).toString();
+		String actual_subscriberCity = account_json_obj.get(&quot;subscriber_city&quot;).toString();
+		String actual_subscriberState = account_json_obj.get(&quot;subscriber_state&quot;).toString();
+		String actual_subscriberZip = account_json_obj.get(&quot;subscriber_zip&quot;).toString();
+		String actual_subscriberFirstName = account_json_obj.get(&quot;subscriber_contact_first_name&quot;).toString();
+		String actual_subscriberLastName = account_json_obj.get(&quot;subscriber_contact_last_name&quot;).toString();
+		String actual_subscriberEmail  = account_json_obj.get(&quot;subscriber_contact_email&quot;).toString();
+		String actual_accountName = account_json_obj.get(&quot;verisk_service_account_name&quot;).toString();
+		String actual_dotNum = account_json_obj.get(&quot;dot_num&quot;).toString();
+		String actual_status = account_json_obj.get(&quot;status&quot;).toString();
+		
+		
+		AssertValues(vars.get(&quot;account_id&quot;),actual_accountid,actual_accountid+&quot; Match &quot;, actual_accountid+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;contribid&quot;),actual_contribid,actual_contribid+&quot; Match&quot;,actual_contribid+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_name&quot;),actual_subscribername,actual_subscribername+&quot; Match&quot;,actual_subscribername+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;address1&quot;),actual_subscriberAddress,actual_subscriberAddress+&quot; Match&quot;,actual_subscriberAddress+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;city1&quot;),actual_subscriberCity,actual_subscriberCity+&quot; Match&quot;,actual_subscriberCity+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;state1&quot;),actual_subscriberState,actual_subscriberState+&quot; Match&quot;,actual_subscriberState+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;zipcode1&quot;),actual_subscriberZip,actual_subscriberZip+&quot; Match&quot;,actual_subscriberZip+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_contact_first_name&quot;),actual_subscriberFirstName,actual_subscriberFirstName+&quot; Match&quot;,actual_subscriberFirstName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_contact_last_name&quot;),actual_subscriberLastName,actual_subscriberLastName+&quot; Match&quot;,actual_subscriberLastName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;subscriber_contact_email&quot;),actual_subscriberEmail,actual_subscriberEmail+&quot; Match&quot;,actual_subscriberEmail+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;verisk_service_account_name&quot;),actual_accountName,actual_accountName+&quot; Match&quot;,actual_accountName+&quot; Not Match&quot;);
+		AssertValues(vars.get(&quot;dot_number&quot;),actual_dotNum,actual_dotNum+&quot; Match&quot;,actual_dotNum+&quot; Not Match&quot;);
+		AssertValues(&quot;Success&quot;,actual_status,actual_status+&quot; Match&quot;,actual_status+&quot; Not Match&quot;);
+		
+	
+	public void AssertValues(String Expected, String Actual, String PassMessage, String FailureMessage){
+        if(Expected.equals(Actual)){
+        		log.info(&quot;****Assertion Successful****&quot;);
+        		log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected +&quot;\n&quot;);
+            	log.info(PassMessage);
+        }
+        else{
+        	  	vars.put(&quot;AssertionFailure&quot;,&quot;true&quot;);             
+            	AssertionResult.setFailure(true);
+            	vars.put(&quot;FailureMsg&quot;,vars.get(&quot;FailureMsg&quot;) + &quot;\n****ASSERTION FAILURE****** \n&quot;+FailureMessage + &quot; ||  EXPECTED: &quot;+ Expected + &quot; || ACTUAL: &quot;+Actual + &quot;\n&quot;); 
+ 		 	log.info(&quot;****ASSERTION FAILURE******&quot;);
+ 			log.info(FailureMessage);               
+          	log.info(&quot;Actual: &quot;+Actual+&quot; Expected: &quot;+Expected);
+        }
+    }</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Variable Scope only in one Transaction" enabled="true">
+              <collectionProp name="ModuleController.node_path">
+                <stringProp name="764597751">Test Plan</stringProp>
+                <stringProp name="764597751">Test Plan</stringProp>
+                <stringProp name="932775143">User Define Variables</stringProp>
+              </collectionProp>
+            </ModuleController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">500</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">D:\Users\I25176\DahalDockFile\apache-jmeter-4.0\bin\fisttest.jtl</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

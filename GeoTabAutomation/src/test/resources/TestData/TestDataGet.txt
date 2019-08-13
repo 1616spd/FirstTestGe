@@ -1,0 +1,6 @@
+contrib_id,account_id,subscriber_name,subscriber_address,subscriber_city,subscriber_state,subscriber_zip,subscriber_contact_first_name,subscriber_contact_last_name,subscriber_contact_email,verisk_service_account_name,updated_by
+GTQATESTs7BwB,ABCtrucking,ABC trucking Ltd,81 Knutson Court,Fort Worth,TX,76121,Brenda,Alexander,sdahal@verisk.com,Verisk-Service@ABCtrucking,Brenda
+GTQATEST9x1E4,ABCtrucking,ABC trucking Ltd,248 Becker Trail,Milwaukee,WI,53277,Lisa,Patterson,sdahal@verisk.com,Verisk-Service@ABCtrucking,Lisa
+GTQATEST8p5v4,ABCtrucking,ABC trucking Ltd,99 Haas Avenue,Fort Lauderdale,FL,33330,Betty,Nelson,sdahal@verisk.com,Verisk-Service@ABCtrucking,Betty
+GTQATESTEx78u,ABCtrucking,ABC trucking Ltd,8 Eagan Terrace,Houston,TX,77293,Dennis,Tucker,sdahal@verisk.com,Verisk-Service@ABCtrucking,Dennis
+GTQATEST5sD9x,ABCtrucking,ABC trucking Ltd,29391 Granby Hil,Los Angeles,CA,90060,Jessica,Nichols,sdahal@verisk.com,Verisk-Service@ABCtrucking,Jessica
